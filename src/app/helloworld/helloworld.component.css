@@ -1,0 +1,12 @@
+body{
+	padding: 0;
+	border-style:solid;
+	background-color:yellow;
+}
+.nav{
+	text-align:center;
+	padding: 0;
+	border-style:solid;
+	background-color: red;
+	height:3em;
+}
