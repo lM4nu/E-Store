@@ -1,5 +1,9 @@
 .item{
 	border-style:solid;
-	height: 100px;
-	width: 100px;
+	height: 25em;
+	width: 25em;
+}
+p{
+	font-size: 5em;
+	text-align:center;
 }

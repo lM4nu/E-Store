@@ -2,10 +2,18 @@ body{
 	padding: 0;
 	border-style:solid;
 }
+h1{
+	margin:0;
+}
 .nav{
+	display:flex;
+	align-items:center;
+	justify-content: center;
 	text-align:center;
 	padding: 0;
+	border:0;
 	border-style:solid;
 	background-color: red;
 	height:3em;
+	font-size: 4em;
 }
