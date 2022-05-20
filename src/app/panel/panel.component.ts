@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PRODUCTS } from '../mock-products';
 
 @Component({
   selector: 'app-panel',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./panel.component.css']
 })
 export class PanelComponent implements OnInit {
+
+  products = PRODUCTS;
 
   constructor() { }
 

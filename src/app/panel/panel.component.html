@@ -1,9 +1,5 @@
 <div class="panel">
-	<app-item></app-item>
-	<app-item></app-item>
-	<app-item></app-item>
-	<app-item></app-item>
-	<app-item></app-item>
-	<app-item></app-item>
-	<app-item></app-item>
+	<div *ngFor="let item of products">
+	<app-item [item]="item"></app-item>
+	</div>
 </div>
