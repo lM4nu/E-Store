@@ -23,7 +23,6 @@ img{
 }
 
 .info-data{
-	/*border-right:solid;*/
 	width:70%;
 	display:flex;
 	align-items:center;
@@ -50,10 +49,16 @@ img{
 	border:none;
 	text-decoration:none;
 	font-size: 3em;
-	background-color: #33cc33;
+	background-color: #00cc00;
 	border-radius: 50%;
 	height:85%;
 	aspect-ratio:1/1;
+
+}
+
+.add-btn:hover {
+	color: white;
+	background-color: #008000;
 
 }
 
