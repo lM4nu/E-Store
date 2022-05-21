@@ -5,5 +5,4 @@
 	grid-template-columns: repeat(3, 1fr);
 	padding: 5em;
 	row-gap: 2em;
-	border-style:solid;
 }

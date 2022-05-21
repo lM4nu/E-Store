@@ -1,11 +1,11 @@
-<div *ngIf="item" class="item">
+<div *ngIf="info" class="item">
 	<div class="img-container">
-		<img src="item.imgPath" alt="no-image">
+		<img [src]="info.imgPath" alt="product-image">
 	</div>
 	<div class="info-container">
 		<div class="info-data">
-			<p class="info-text">{{item.name}}</p>
-			<p class="info-text">${{item.price}}</p>
+			<p class="info-text">{{info.name}}</p>
+			<p class="info-text">${{info.price}}</p>
 		</div>
 		<div class="btn-container">
 			<input class="add-btn"type="button" value="+">
