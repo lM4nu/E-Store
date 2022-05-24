@@ -9,6 +9,11 @@ import { Product } from '../product';
 export class ItemComponent implements OnInit {
 
   @Input() info?: Product;
+
+  log(info: Product){
+
+	console.log(info);
+  }
   constructor() { }
 
   ngOnInit(): void {
