@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
+	nombrecarrito?:string = "hola";
+	setcarrito(nombre:string){
+		this.nombrecarrito = nombre;
+	}
+
   constructor() { }
 
   ngOnInit(): void {
