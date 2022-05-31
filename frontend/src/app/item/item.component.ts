@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../product';
 import { CartComponent } from '../cart/cart.component';
 
 @Component({
@@ -11,11 +10,11 @@ export class ItemComponent implements OnInit {
 
 	carrito = CartComponent;
 
-  @Input() info?: Product;
+  @Input() info?: any;
 
   
 
-  log(info: Product){
+  log(info: String){
 
 	console.log(info);
   }

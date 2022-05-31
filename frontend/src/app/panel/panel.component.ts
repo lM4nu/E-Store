@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PRODUCTS } from '../mock-products';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-panel',
@@ -8,11 +8,21 @@ import { PRODUCTS } from '../mock-products';
 })
 export class PanelComponent implements OnInit {
 
-  products = PRODUCTS;
 
-  constructor() { }
+respuesta = '';
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http
+      .get('http://localhost:8080/demo/all', {responseType: 'json'})
+      .subscribe((resp:any)=>{
+          this.respuesta = resp;
+          console.log(this.respuesta);
+          
+      }),
+      (error: any) => {
+        console.log(error);
+      };
   }
 
 }
