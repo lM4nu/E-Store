@@ -15,7 +15,7 @@ public class Productos {
     private Integer id;
     private String name;
     private Integer price;
-    private String imgPath;
+    private String imgpath;
 
     public void setId(Integer id) {
         this.id = id;
@@ -41,12 +41,12 @@ public class Productos {
         return price;
     }
 
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
+    public void setImgpath(String imgpath) {
+        this.imgpath = imgpath;
     }
 
-    public String getImgPath() {
-        return imgPath;
+    public String getImgpath() {
+        return imgpath;
     }
 
 }

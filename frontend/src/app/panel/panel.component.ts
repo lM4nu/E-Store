@@ -14,7 +14,7 @@ products = '';
 
   ngOnInit(): void {
     this.http
-      .get('http://localhost:8080/demo/all', {responseType: 'json'})
+      .get('http://localhost:8080/productos/all', {responseType: 'json'})
       .subscribe((resp:any)=>{
           this.products = resp;
          console.log(this.products);
