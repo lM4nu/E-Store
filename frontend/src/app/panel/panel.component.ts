@@ -9,15 +9,15 @@ import { HttpClient } from '@angular/common/http';
 export class PanelComponent implements OnInit {
 
 
-respuesta = '';
+products = '';
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http
       .get('http://localhost:8080/demo/all', {responseType: 'json'})
       .subscribe((resp:any)=>{
-          this.respuesta = resp;
-          console.log(this.respuesta);
+          this.products = resp;
+         console.log(this.products);
           
       }),
       (error: any) => {

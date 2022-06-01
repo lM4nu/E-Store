@@ -19,7 +19,7 @@ public class ProductosController {
     private ProductosRepository productosRepository;
 
     @PostMapping(path = "/add") // Map ONLY POST Requests
-    public @ResponseBody String addNewUser(@RequestParam Integer id,
+    public @ResponseBody String addNewProduct(
             @RequestParam String name,
             @RequestParam Integer price,
             @RequestParam String imgPath) {
@@ -27,7 +27,6 @@ public class ProductosController {
         // @RequestParam means it is a parameter from the GET or POST request
 
         Productos n = new Productos();
-        n.setId(id);
         n.setName(name);
         n.setPrice(price);
         n.setImgPath(imgPath);
