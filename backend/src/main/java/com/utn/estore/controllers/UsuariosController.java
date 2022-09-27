@@ -30,7 +30,7 @@ public class UsuariosController {
 	n.setName(name);
 	n.setPassword(password);
 	usuariosRepository.save(n);
-        //return "Saved";
+        return "Saved";
     }
 
     @GetMapping("/delete/{id}") // Map ONLY POST Requests

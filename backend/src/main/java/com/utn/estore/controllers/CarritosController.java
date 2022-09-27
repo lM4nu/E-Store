@@ -32,7 +32,7 @@ public class CarritosController {
 	n.setCantidad(cantidad);
 	n.setUsuarioid(usuarioid);
 	carritosRepository.save(n);
-        //return "Saved";
+	return "Saved";
     }
 
     @GetMapping("/delete/{id}") // Map ONLY POST Requests
