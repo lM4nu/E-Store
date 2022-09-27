@@ -27,7 +27,7 @@ public class CarritosController {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
-	carritos n = new Carritos();
+	Carritos n = new Carritos();
 	n.setProductoid(productoid);
 	n.setCantidad(cantidad);
 	n.setUsuarioid(usuarioid);
