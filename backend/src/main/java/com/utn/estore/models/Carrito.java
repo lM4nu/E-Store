@@ -10,13 +10,14 @@ import lombok.Data;
 
 @Data
 @Entity // This tells Hibernate to make a table out of this class
-@Table(name = "productos")
-public class Productos {
+@Table(name = "carrito")
+public class Carrito {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String name;
-    private Integer price;
-    private String imgpath;
+    private Integer usuarioid;
+    private Integer cantidad;
+    private Integer productoid;
+
 
 }
