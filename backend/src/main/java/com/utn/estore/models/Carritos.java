@@ -13,7 +13,7 @@ import lombok.Data;
 @Table(name = "carrito")
 public class Carritos {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer usuarioid;
     private Integer cantidad;

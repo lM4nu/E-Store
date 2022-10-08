@@ -13,7 +13,7 @@ import lombok.Data;
 @Table(name = "productos")
 public class Productos {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private Integer price;
