@@ -9,6 +9,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { LoginComponent } from './components/login/login.component';
     ItemComponent,
     CartComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

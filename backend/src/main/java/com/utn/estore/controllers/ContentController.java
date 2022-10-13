@@ -28,9 +28,8 @@ public class ContentController {
 		if(!usuariosRepository.findByPassword(authHeader).isEmpty()){
 			Usuarios user = usuariosRepository.findByPassword(authHeader).get(0);
 			//return "{ \"success\":true, \"id\":\""+user.getId()+"\", \"name\":\""+user.getName()+"\"}";
-			//return carritosRepository.findByUsuarioid(user.getId()).toString();
 			String json = new ObjectMapper().writeValueAsString(carritosRepository.findByUsuarioid(user.getId()));
-			return json;
+			return "{ \"success\":true, \"id\":\""+user.getId()+"\", \"name\":\""+user.getName()+"\", \"carritoContent\":"+json+"}";
 
 		}else{
 			return "{ \"success\":false, \"msg\":\"token incorrecto\"}";

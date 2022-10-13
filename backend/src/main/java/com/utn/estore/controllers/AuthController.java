@@ -42,9 +42,10 @@ public class AuthController {
 		if(usuariosRepository.existsByName(reqData.getName())) {
 			String reqPassword = encryptarService.hashearString(reqData.getName()+reqData.getPassword());
 			String dbPassword = usuariosRepository.findByName(reqData.getName()).get(0).getPassword(); 
+			Integer id = usuariosRepository.findByName(reqData.getName()).get(0).getId();
 
 			if(dbPassword.equals(reqPassword)){
-				return "{ \"success\":true, \"token\":\""+dbPassword+"\"}";
+				return "{ \"success\":true, \"token\":\""+dbPassword+"\", \"id\":\""+id+"\"}";
 			}else{
 				return "{ \"success\":false, \"msg\":\"Contrasena incorrecta\"}";
 			}

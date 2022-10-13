@@ -1,2 +1,2 @@
-<p>cart works! {{nombrecarrito}}</p>
-<!--<input type="button" value="change" (click)="setcarrito('chau')">-->
+<app-cart-item *ngFor="let item of cartData" [info]="item"></app-cart-item> 
+

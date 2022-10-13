@@ -1,5 +1,7 @@
 package com.utn.estore.controllers;
 
+import java.util.Optional;
+
 import com.utn.estore.models.Productos;
 import com.utn.estore.repositories.ProductosRepository;
 
@@ -34,6 +36,12 @@ public class ProductosController {
 	productosRepository.save(n);
         return "Saved";
     }
+
+    @GetMapping("/get/{id}")
+    public @ResponseBody Optional<Productos> getById(@PathVariable Integer id) {
+        return productosRepository.findById(id);
+    }
+
 
     @GetMapping("/delete/{id}") // Map ONLY POST Requests
     public @ResponseBody String deleteUserById(@PathVariable Integer id) {
