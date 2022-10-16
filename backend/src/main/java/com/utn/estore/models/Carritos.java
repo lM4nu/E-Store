@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
 @Table(name = "carrito")
 public class Carritos {
     @Id
@@ -18,6 +18,4 @@ public class Carritos {
     private Integer usuarioid;
     private Integer cantidad;
     private Integer productoid;
-
-
 }

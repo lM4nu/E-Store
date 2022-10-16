@@ -6,25 +6,16 @@ import { Injectable } from '@angular/core';
 })
 export class ProductsService {
 
-	API_URL="http://localhost:8080";
   constructor(private httpClient: HttpClient) { }
 
-
+  API="http://localhost:8080";
 
   public getProducts(){
-	 return this.httpClient.get(`${this.API_URL}/productos/all`);
+	 return this.httpClient.get(`${this.API}/productos/all`);
   }
 
-
-  public async getProduct(id:any){
-	  let info;
-	 const data = await this.httpClient.get(`${this.API_URL}/productos/get/${id}`).toPromise().then((dataa) => {
-		 info = dataa;
-	 });
-	 return info;
+  public getProduct(id:any){
+	 return this.httpClient.get(`${this.API}/productos/get/${id}`)
   }
-
-
-
 
 }

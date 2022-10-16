@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
 @Table(name = "productos")
 public class Productos {
     @Id
@@ -18,5 +18,4 @@ public class Productos {
     private String name;
     private Integer price;
     private String imgpath;
-
 }

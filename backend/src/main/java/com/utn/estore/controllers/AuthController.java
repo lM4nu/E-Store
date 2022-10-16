@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/auth")
+@RequestMapping("/auth")
 public class AuthController {
-
-
 	@Autowired
 	private UsuariosRepository usuariosRepository;
 
@@ -28,12 +26,10 @@ public class AuthController {
 		if(usuariosRepository.existsByName(reqData.getName())){
 			return "{ \"success\":false, \"msg\":\"Usuarios ya existe\" }";
 		}
-
 		Usuarios newUser = new Usuarios();
 		newUser.setName(reqData.getName());
 		newUser.setPassword(encryptarService.hashearString(reqData.getName()+reqData.getPassword()));
 		usuariosRepository.save(newUser);
-
 		return "{ \"success\":true}";
 	}
 
@@ -52,7 +48,5 @@ public class AuthController {
 		}else{
 			return "{ \"success\":false, \"msg\":\"Usuario no existe\"}";
 		}
-
 	}
-
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CartService} from '../services/cart.service';
 import {LocalStorageService} from '../services/localstorage.service';
-import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,14 +12,13 @@ export class NavbarComponent implements OnInit {
   title= "E-Store";
   productsCount?:any;
 
-  constructor(private localStorageService: LocalStorageService, private userService: UserService) { }
+  constructor(private localStorageService: LocalStorageService, private cartService: CartService) { }
 
   ngOnInit(): void {
 	  const token = this.localStorageService.getToken();
 	  if(this.localStorageService.isLogged()) {
-		  this.userService.getCarrito(token).subscribe((res:any) => {
+		  this.cartService.getCarrito(token).subscribe((res:any) => {
 			  this.productsCount = res.carritoContent.length;
-			  console.log(res);
 		  },(err) => {
 			  this.productsCount = 0;
 			  console.log(err);
@@ -28,7 +27,5 @@ export class NavbarComponent implements OnInit {
 		  this.productsCount = undefined;
 	  }
   }
-
-
 
 }

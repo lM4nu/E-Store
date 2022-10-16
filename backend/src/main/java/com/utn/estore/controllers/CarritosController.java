@@ -17,52 +17,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(path = "/carritos")
+@RequestMapping("/carritos")
 public class CarritosController {
     @Autowired
     private CarritosRepository carritosRepository;
 
-    @PostMapping(path = "/add")
-    public @ResponseBody String addNewProduct(
-            @RequestBody Carritos carrito) {
-
+    @PostMapping("/add")
+    public @ResponseBody String add(@RequestBody Carritos carrito) {
 	carritosRepository.save(carrito);
 	return "{ \"success\":true, \"msg\":\"producto agregado\" }";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public @ResponseBody String deleteUserById(@PathVariable Integer id) {
-        carritosRepository.deleteById(id);
-        return "Deleted";
-    }
-
-    @GetMapping("/get/{id}")
-    public @ResponseBody Optional<Carritos> getById(@PathVariable Integer id) {
-        return carritosRepository.findById(id);
-    }
-
-    @PutMapping("/edit/{id}")
-    public @ResponseBody String reemplazarCarrito(@RequestBody Carritos newCarrito, @PathVariable Integer id){
-
-	    Carritos x = carritosRepository.findById(id).get();
-	    x.setCantidad(newCarrito.getCantidad());
-	    carritosRepository.save(x);
-
-	return "{ \"success\":true, \"msg\":\"producto editado\" }";
-
-
-    }
-
-
-    @GetMapping(path = "/all")
-    public @ResponseBody Iterable<Carritos> getAllUsers() {
+    @GetMapping("/all")
+    public @ResponseBody Iterable<Carritos> getAll() {
         return carritosRepository.findAll();
     }
 
-    @PostMapping(path = "/userandproduct")
-    public @ResponseBody Iterable<Carritos> findByUserIdAndProductId(@RequestBody Carritos carrito){
+    @GetMapping("/get/{id}")
+    public @ResponseBody Optional<Carritos> get(@PathVariable Integer id) {
+        return carritosRepository.findById(id);
+    }
+
+    @PostMapping("/userandproduct")
+    public @ResponseBody Iterable<Carritos> findByUsuarioIdAndProductId(@RequestBody Carritos carrito){
 	    return carritosRepository.findByUsuarioidAndProductoid(carrito.getUsuarioid(),carrito.getProductoid());
     }
 
+    @PutMapping("/edit/{id}")
+    public @ResponseBody String edit(@RequestBody Carritos newCarrito, @PathVariable Integer id){
+	    newCarrito.setId(id);
+	    carritosRepository.save(newCarrito);
+	    return "{ \"success\":true, \"msg\":\"producto editado\" }";
+    }
 
+    @DeleteMapping("/delete/{id}")
+    public @ResponseBody String delete(@PathVariable Integer id) {
+        carritosRepository.deleteById(id);
+	return "{ \"success\":true, \"msg\":\"producto borrado\" }";
+    }
 }

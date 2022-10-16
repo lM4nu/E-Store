@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {CartService} from '../services/cart.service';
 import {LocalStorageService} from '../services/localstorage.service';
 import {ProductsService} from '../services/products.service';
-import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,29 +11,30 @@ import {UserService} from '../services/user.service';
 })
 export class CartComponent implements OnInit {
 
-
-	cartData?:any;
-
   constructor(private localStorageService: LocalStorageService,
-	      private userService: UserService, private router: Router,
-	     private productsService: ProductsService) { }
+	      private cartService: CartService, private router: Router,
+	      private productsService: ProductsService) { }
+
+  cartData?:any
 
   ngOnInit(): void {
 	  const token = this.localStorageService.getToken();
-	  if(this.localStorageService.isLogged()) {
-		  this.userService.getCarrito(token).subscribe((res:any) => {
-			  this.cartData = res.carritoContent;
-			  res.carritoContent
-			  .map((x:any) => {
-				  const productinfo = this.productsService.getProduct(x.productoid).then((x) => x);
-				  console.log(productinfo);
-				  return x;
-			  });
-
-			  //console.log(res.carritoContent);
-		  },(err) => {
-			  console.log(err);
-		  });
+	  if(this.localStorageService.isLogged()){
+    		this.cartService.getCarrito(token)
+		.subscribe(
+			(res:any)=> {
+				this.cartData = res.carritoContent;
+				this.cartData.forEach( (item:any, index:any) => { 
+					this.productsService.getProduct(item.productoid)
+					.subscribe(
+						(res) => {
+							this.cartData[index].details = res;
+						},(err) => {
+							console.log(err);
+						})
+				});
+			}, 
+			(err) => {console.log(err)})
 	  }else{
 		  this.router.navigate(['/login']);
 	  }

@@ -12,5 +12,4 @@ public interface UsuariosRepository extends CrudRepository<Usuarios, Integer> {
 	List<Usuarios> findByPassword(String password);
 
 	Boolean existsByName(String name);
-
 }

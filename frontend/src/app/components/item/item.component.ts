@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {UserService} from '../services/user.service';
+import {CartService} from '../services/cart.service';
 
 @Component({
   selector: 'app-item',
@@ -10,15 +10,14 @@ export class ItemComponent implements OnInit {
 
   @Input() info?: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private cartService: CartService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   log(info: any){
 	console.log(info);
 	const productId = info.id;
-	this.userService.addItemCarrito(productId);
+	this.cartService.addItemCarrito(productId);
   }
 
 }

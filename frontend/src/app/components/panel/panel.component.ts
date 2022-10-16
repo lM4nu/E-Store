@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {ProductsService} from '../services/products.service';
 
 @Component({
   selector: 'app-panel',
@@ -9,19 +9,17 @@ import { HttpClient } from '@angular/common/http';
 export class PanelComponent implements OnInit {
 
 
-products = '';
-  constructor(private http: HttpClient) { }
+  constructor(private productsService: ProductsService) { }
+
+  products:any;
 
   ngOnInit(): void {
-    this.http
-      .get('http://localhost:8080/productos/all', {responseType: 'json'})
-      .subscribe((resp:any)=>{
-          this.products = resp;
-         console.log(this.products);
-          
+    this.productsService.getProducts()
+      .subscribe((res:any)=>{
+          this.products = res;
       }),
-      (error: any) => {
-        console.log(error);
+      (err:any) => {
+        console.log(err);
       };
   }
 

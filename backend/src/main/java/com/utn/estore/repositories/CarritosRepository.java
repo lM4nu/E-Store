@@ -11,5 +11,4 @@ public interface CarritosRepository extends CrudRepository<Carritos, Integer> {
 	List<Carritos> findByUsuarioid(Integer usuarioid);
 
 	List<Carritos> findByUsuarioidAndProductoid(Integer usuarioid, Integer productoid);
-
 }
