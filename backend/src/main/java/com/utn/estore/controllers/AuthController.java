@@ -20,7 +20,6 @@ public class AuthController {
 	@Autowired
 	private EncryptarService encryptarService;
 
-
 	@PostMapping("/registrarse")
 	public @ResponseBody String registrarUsuario(@RequestBody Usuarios reqData) throws Exception{
 		if(usuariosRepository.existsByName(reqData.getName())){

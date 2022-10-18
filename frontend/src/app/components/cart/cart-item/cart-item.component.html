@@ -1,3 +1,4 @@
 <div *ngIf="info">
-	<p>{{info.details.name}} Precio: {{info.details.price * info.cantidad}} Cantidad: {{info.cantidad}}</p>
+	<!--optional chaining-->
+	<p>{{info.details?.name}} Precio: {{info.details?.price * info.cantidad}} Cantidad: {{info.cantidad}}</p>
 </div>

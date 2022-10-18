@@ -12,7 +12,7 @@ export class CartItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-	  //console.log(this.info);
+	  console.log(this.info);
   }
 
 }

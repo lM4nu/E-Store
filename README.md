@@ -29,4 +29,3 @@ y usar el archivo *estoredb.sql* para crear la base de datos a la que el backend
 	$ ng serve
 
 Entrando a [localhost:4200](https://localhost:4200) deberíamos ver la pagina de la tienda
-hola
