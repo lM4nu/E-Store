@@ -1,8 +1,8 @@
 .panel {
-	display: grid;
-	align-items:center;
-	justify-items:center;
-	grid-template-columns: repeat(3, 1fr);
-	padding: 5em;
-	row-gap: 2em;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 5em;
+  row-gap: 2em;
 }

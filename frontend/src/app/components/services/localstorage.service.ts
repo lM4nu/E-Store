@@ -1,34 +1,32 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalStorageService {
+  constructor() {}
 
-  constructor() { }
-
-  public setToken(input:string){
-	  localStorage.setItem("token",input);
+  public setToken(input: string) {
+    localStorage.setItem('token', input);
   }
 
-  public getToken():any {
-	  return localStorage.getItem("token");
+  public getToken(): any {
+    return localStorage.getItem('token');
   }
 
-  public setUserId(id:any){
-	  return localStorage.setItem("userid",id);
+  public setUserId(id: any) {
+    return localStorage.setItem('userid', id);
   }
 
-  public getUserId():any{
-	  return localStorage.getItem("userid");
+  public getUserId(): any {
+    return localStorage.getItem('userid');
   }
 
-  public clear(){
-	  localStorage.clear();
+  public clear() {
+    localStorage.clear();
   }
 
-  public isLogged(){
-	  return localStorage.getItem("token") ? true : false;
+  public isLogged() {
+    return localStorage.getItem('token') ? true : false;
   }
-
 }

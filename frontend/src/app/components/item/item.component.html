@@ -1,14 +1,14 @@
 <div *ngIf="info" class="item">
-	<div class="img-container">
-		<img [src]="info.imgpath" alt="product-image">
-	</div>
-	<div class="info-container">
-		<div class="info-data">
-			<p class="info-text">{{info.name}}</p>
-			<p class="info-text">${{info.price}}</p>
-		</div>
-		<div class="btn-container">
-			<input class="add-btn" type="button" value="+" (click)="log(info)">
-		</div>
-	</div>
+  <div class="img-container">
+    <img [src]="info.imgpath" alt="product-image" />
+  </div>
+  <div class="info-container">
+    <div class="info-data">
+      <p class="info-text">{{ info.name }}</p>
+      <p class="info-text">${{ info.price }}</p>
+    </div>
+    <div class="btn-container">
+      <input class="add-btn" type="button" value="+" (click)="log(info)" />
+    </div>
+  </div>
 </div>

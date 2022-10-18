@@ -21,15 +21,10 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
     CartComponent,
     HomeComponent,
     LoginComponent,
-    CartItemComponent
+    CartItemComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
