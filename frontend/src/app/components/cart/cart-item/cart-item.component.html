@@ -1,7 +1,9 @@
 <div *ngIf="info">
   <!--optional chaining-->
   <p>
+    <input type="button" value="-" (click)="test(-1, info)" />
     {{ info.details?.name }} Precio:
     {{ info.details?.price * info.cantidad }} Cantidad: {{ info.cantidad }}
+    <input type="button" value="+" (click)="test(1, info)" />
   </p>
 </div>

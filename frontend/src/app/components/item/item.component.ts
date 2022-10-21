@@ -17,5 +17,6 @@ export class ItemComponent implements OnInit {
     console.log(info);
     const productId = info.id;
     this.cartService.addItemCarrito(productId);
+    //this.cartService.editarCantidad(+1);
   }
 }

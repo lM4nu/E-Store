@@ -14,6 +14,54 @@ export class CartService {
   ) {}
 
   API = 'http://localhost:8080';
+  cantidad: any;
+
+  public editarCantidad(num: number) {
+    if (this.cantidad == undefined) {
+      this.cantidad = 0;
+    }
+    this.cantidad = this.cantidad + num;
+    if (this.cantidad <= 0) {
+      this.cantidad = undefined;
+    }
+  }
+
+  public editarCantidadItem(num: number, carritoItem: any) {
+    //logica para editar y sumarle uno
+    const nuevaCantidad = carritoItem.cantidad + num;
+    if (nuevaCantidad <= 0) {
+      return this.httpClient.delete(
+        `${this.API}/carritos/delete/${carritoItem.id}`
+      );
+      //.subscribe(
+      //(res) => {
+      //console.log(res);
+      //},
+      //(err) => {
+      //console.log(err);
+      //}
+      //);
+    } else {
+      const nuevoItem = {
+        cantidad: nuevaCantidad,
+        usuarioid: carritoItem.usuarioid,
+        productoid: carritoItem.productoid,
+      };
+      //putrequest
+      return this.httpClient.put(
+        `${this.API}/carritos/edit/${carritoItem.id}`,
+        nuevoItem
+      );
+      //.subscribe(
+      //(res) => {
+      //console.log(res);
+      //},
+      //(err) => {
+      //console.log(err);
+      //}
+      //);
+    }
+  }
 
   public getCarrito(token: string) {
     return this.httpClient.get(`${this.API}/data/carrito`, {
@@ -40,33 +88,17 @@ export class CartService {
                 })
                 .subscribe(
                   (res) => {
-                    console.log(res);
+                    //console.log(res);
+                    this.editarCantidad(+1);
                   },
                   (err) => {
                     console.log(err);
                   }
                 );
             } else {
-              //logica para editar y sumarle uno
-              const carritoItem = res[0];
-              //console.log(carritoItem);
-              const nuevaCantidad = carritoItem.cantidad + 1;
-              const nuevoItem = {
-                cantidad: nuevaCantidad,
-                usuarioid: carritoItem.usuarioid,
-                productoid: carritoItem.productoid,
-              };
-              //putrequest
-              this.httpClient
-                .put(`${this.API}/carritos/edit/${carritoItem.id}`, nuevoItem)
-                .subscribe(
-                  (res) => {
-                    console.log(res);
-                  },
-                  (err) => {
-                    console.log(err);
-                  }
-                );
+              this.editarCantidadItem(+1, res[0]).subscribe((res) => {
+                //console.log(res);
+              });
             }
           },
           (err) => {
