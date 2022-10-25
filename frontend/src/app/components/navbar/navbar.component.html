@@ -1,13 +1,21 @@
 <nav class="nav">
   <!--<div routerLinkActive="active">-->
-  <a routerLink="/home" routerLinkActive="active">Panel</a>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
+  <div class="left">
+    <a class="btn" routerLink="/home" routerLinkActive="active">Panel</a>
+    <a
+      *ngIf="!localStorageService.isLogged()"
+      class="btn"
+      routerLink="/login"
+      routerLinkActive="active"
+      >Login</a
+    >
+  </div>
   <!--</div>-->
-  <h1>{{ title }}</h1>
+  <h1 class="navbar-brand">{{ title }}</h1>
   <div class="img-container">
-    <a routerLink="/cart" routerLinkActive="active"
-      ><img src="../../assets/cart-icon.png"
-    /></a>
+    <a routerLink="/cart">
+      <img src="../../assets/cart-icon.png" />
+    </a>
     <h2>{{ cartService.cantidad }}</h2>
   </div>
 </nav>

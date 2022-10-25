@@ -10,8 +10,10 @@ import { LocalStorageService } from '../services/localstorage.service';
 export class NavbarComponent implements OnInit {
   title = 'E-Store';
 
+  isLogged = true;
+
   constructor(
-    private localStorageService: LocalStorageService,
+    public localStorageService: LocalStorageService,
     public cartService: CartService
   ) {}
 
