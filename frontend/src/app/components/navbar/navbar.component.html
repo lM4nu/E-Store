@@ -1,5 +1,4 @@
 <nav class="nav">
-  <!--<div routerLinkActive="active">-->
   <div class="left">
     <a class="btn" routerLink="/home" routerLinkActive="active">Panel</a>
     <a
@@ -10,11 +9,10 @@
       >Login</a
     >
   </div>
-  <!--</div>-->
   <h1 class="navbar-brand">{{ title }}</h1>
   <div class="img-container">
     <a routerLink="/cart">
-      <img src="../../assets/cart-icon.png" />
+      <fa-icon class="icon" [icon]="faCart"></fa-icon>
     </a>
     <h2>{{ cartService.cantidad }}</h2>
   </div>

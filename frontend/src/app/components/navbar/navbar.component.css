@@ -36,9 +36,11 @@ h1 {
   flex-direction: row-reverse;
 }
 
-img {
+.icon {
   height: 100%;
   padding-right: 5%;
+  font-size: 2em;
+  color: white;
 }
 
 .active {

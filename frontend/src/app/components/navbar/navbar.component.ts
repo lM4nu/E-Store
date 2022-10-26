@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { LocalStorageService } from '../services/localstorage.service';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,7 @@ import { LocalStorageService } from '../services/localstorage.service';
 export class NavbarComponent implements OnInit {
   title = 'E-Store';
 
+  faCart = faCartShopping;
   isLogged = true;
 
   constructor(
