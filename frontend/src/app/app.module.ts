@@ -11,7 +11,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
-import { AdminpanelComponent } from './components/adminpanel/adminpanel.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     LoginComponent,
     CartItemComponent,
-    AdminpanelComponent,
     FooterComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
