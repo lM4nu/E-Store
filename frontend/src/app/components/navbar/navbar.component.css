@@ -1,10 +1,10 @@
-.nav {
+.naav {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  text-align: center;
   padding: 0;
   border: 0;
+  margin: 0;
   background-color: #d00;
   height: 3em;
   font-size: 4em;
@@ -38,7 +38,6 @@ h1 {
 
 .icon {
   height: 100%;
-  padding-right: 5%;
   font-size: 2em;
   color: white;
 }
