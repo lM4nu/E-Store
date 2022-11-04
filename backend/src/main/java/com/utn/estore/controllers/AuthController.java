@@ -5,8 +5,11 @@ import com.utn.estore.repositories.UsuariosRepository;
 import com.utn.estore.services.EncryptarService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,7 +43,11 @@ public class AuthController {
 			Integer id = usuariosRepository.findByName(reqData.getName()).get(0).getId();
 
 			if(dbPassword.equals(reqPassword)){
-				return "{ \"success\":true, \"token\":\""+dbPassword+"\", \"id\":\""+id+"\"}";
+				if(reqPassword.equals("d82494f05d6917ba02f7aaa29689ccb444bb73f20380876cb05d1f37537b7892")){
+					return "{ \"success\":true, \"token\":\""+dbPassword+"\", \"id\":\""+id+"\", \"admin\":true }";
+				}else{
+					return "{ \"success\":true, \"token\":\""+dbPassword+"\", \"id\":\""+id+"\"}";
+				}
 			}else{
 				return "{ \"success\":false, \"msg\":\"Contrasena incorrecta\"}";
 			}
@@ -48,4 +55,16 @@ public class AuthController {
 			return "{ \"success\":false, \"msg\":\"Usuario no existe\"}";
 		}
 	}
+
+	@GetMapping("/isAdmin")
+	public @ResponseBody String isAdmin(@RequestHeader(HttpHeaders.AUTHORIZATION) String authHeader) throws Exception{
+		if(!usuariosRepository.findByPassword(authHeader).isEmpty() 
+				&& usuariosRepository.findByPassword(authHeader).get(0).getId() == 1){
+			return "{ \"success\":true, \"admin\":true}";
+		}else{
+			return "{ \"success\":true, \"admin\":false}";
+		}
+	}
+
+
 }

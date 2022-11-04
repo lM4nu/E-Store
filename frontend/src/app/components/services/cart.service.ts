@@ -109,4 +109,8 @@ export class CartService {
       this.router.navigate(['/login']);
     }
   }
+
+  public deleteProduct(id: any) {
+    return this.httpClient.delete(`${this.API}/carritos/deleteproduct/${id}`);
+  }
 }

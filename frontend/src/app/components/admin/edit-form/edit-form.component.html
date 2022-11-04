@@ -1,0 +1,48 @@
+<div *ngIf="productInfo" class="modalbg" (click)="hide()"></div>
+
+<div *ngIf="productInfo" class="modalwindow">
+  <form #formData="ngForm" (ngSubmit)="edit(formData)">
+    <div>
+      <label for="name">Name</label>
+      <input
+        ngModel
+        type="text"
+        name="name"
+        id="name"
+        [placeholder]="productInfo.name"
+      />
+    </div>
+    <div>
+      <label for="price">Price</label>
+      <input
+        ngModel
+        type="text"
+        name="price"
+        id="price"
+        [placeholder]="productInfo.price"
+        required
+      />
+    </div>
+    <div>
+      <label for="imgpath">ImgPath</label>
+      <input
+        ngModel
+        type="text"
+        name="imgpath"
+        id="imgpath"
+        [placeholder]="productInfo.imgpath"
+        required
+      />
+    </div>
+    <div>
+      <input *ngIf="productInfo.id" class="btn" type="submit" value="Editar" />
+      <input
+        *ngIf="!productInfo.id"
+        class="btn"
+        type="submit"
+        value="Agregar"
+      />
+      <input *ngIf="productInfo.id" (click)="borrar()" class="btn" type="button" value="Borrar" />
+    </div>
+  </form>
+</div>

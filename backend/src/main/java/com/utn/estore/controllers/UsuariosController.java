@@ -5,6 +5,7 @@ import com.utn.estore.repositories.UsuariosRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +30,7 @@ public class UsuariosController {
         return usuariosRepository.findAll();
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public @ResponseBody String delete(@PathVariable Integer id) {
         usuariosRepository.deleteById(id);
 	return "{ \"success\":true, \"msg\":\"usuario borrado\" }";

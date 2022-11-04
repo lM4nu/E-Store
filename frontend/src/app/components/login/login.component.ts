@@ -36,8 +36,13 @@ export class LoginComponent implements OnInit {
               this.cartService.cantidad = res.carritoContent.length;
             }
           });
-          //window.location.replace('/home');
-          this.router.navigate(['/home']);
+          if (res.admin) {
+            //window.location.replace('/admin');
+            this.router.navigate(['/admin']);
+          } else {
+            //window.location.replace('/home');
+            this.router.navigate(['/home']);
+          }
         } else {
           console.log(res);
         }

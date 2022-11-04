@@ -54,6 +54,7 @@ a {
   color: white;
   font-size: 0.5em;
   border-color: white;
+  height: 2em;
 }
 
 .btn:hover {
@@ -63,6 +64,9 @@ a {
 .left {
   /*border-style: solid;*/
   width: 33%;
+  height: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  background-color: #a00;
 }

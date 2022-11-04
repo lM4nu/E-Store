@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -15,5 +15,14 @@ export class AuthService {
 
   public registrar(loginData: any) {
     return this.httpClient.post(`${this.API}/auth/registrarse`, loginData);
+  }
+
+  public isAdmin(token: any) {
+    if (token == null) {
+      token = '';
+    }
+    return this.httpClient.get(`${this.API}/auth/isAdmin`, {
+      headers: new HttpHeaders({ Authorization: token }),
+    });
   }
 }

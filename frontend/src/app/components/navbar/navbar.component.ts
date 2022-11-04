@@ -35,4 +35,9 @@ export class NavbarComponent implements OnInit {
       );
     }
   }
+
+  logout() {
+    this.localStorageService.clear();
+    this.cartService.cantidad = undefined;
+  }
 }

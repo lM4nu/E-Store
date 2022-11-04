@@ -1,0 +1,16 @@
+<app-edit-form
+  [productInfo]="currentProduct"
+  (hideEmit)="hideForm($event)"
+></app-edit-form>
+
+<div class="panel" *ngIf="isAdmin">
+  <app-admin-item
+    *ngFor="let item of products"
+    [info]="item"
+    (event)="showForm($event)"
+  ></app-admin-item>
+
+  <div class="item">
+    <input (click)="addProduct()" class="add-btn" type="button" value="+" />
+  </div>
+</div>

@@ -16,4 +16,16 @@ export class ProductsService {
   public getProduct(id: any) {
     return this.httpClient.get(`${this.API}/productos/get/${id}`);
   }
+
+  public editProduct(id: any, data: any) {
+    return this.httpClient.put(`${this.API}/productos/edit/${id}`, data);
+  }
+
+  public deleteProduct(id: any) {
+    return this.httpClient.delete(`${this.API}/productos/delete/${id}`);
+  }
+
+  public addProduct(data: any) {
+    return this.httpClient.post(`${this.API}/productos/add`, data);
+  }
 }

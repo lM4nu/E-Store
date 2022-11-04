@@ -1,0 +1,33 @@
+.panel {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 5em;
+  row-gap: 2em;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  height: 25em;
+  width: 25em;
+}
+
+.add-btn {
+  border: none;
+  text-decoration: none;
+  font-size: 8em;
+  background-color: #00cc00;
+  border-radius: 50%;
+  width: 50%;
+  aspect-ratio: 1/1;
+  /*color: #008000;*/
+}
+
+.add-btn:hover {
+  color: white;
+  background-color: #008000;
+}
