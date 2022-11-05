@@ -30,9 +30,10 @@ public class AuthController {
 		}
 		Usuarios newUser = new Usuarios();
 		newUser.setName(reqData.getName());
+		newUser.setRealname(reqData.getRealname());
 		newUser.setPassword(encryptarService.hashearString(reqData.getName()+reqData.getPassword()));
-		usuariosRepository.save(newUser);
-		return "{ \"success\":true}";
+		Integer id = usuariosRepository.save(newUser).getId();
+		return "{ \"success\":true, \"token\":\""+newUser.getPassword()+"\", \"id\":\""+id+"\"}";
 	}
 
 	@PostMapping("/logearse")

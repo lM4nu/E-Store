@@ -46,8 +46,13 @@ public class ProductosController {
     }
 
     @GetMapping("/all")
-    public @ResponseBody Iterable<Productos> getAllUsers() {
+    public @ResponseBody Iterable<Productos> getAll() {
         return productosRepository.findAll();
+    }
+
+    @GetMapping("/publicall")
+    public @ResponseBody Iterable<Productos> getAllPublic() {
+        return productosRepository.findByMostrar(true);
     }
 
     @GetMapping("/get/{id}")
@@ -64,7 +69,15 @@ public class ProductosController {
 
     @DeleteMapping("/delete/{id}")
     public @ResponseBody String delete(@PathVariable Integer id) {
-        productosRepository.deleteById(id);
+	// borrar producto
+        //productosRepository.deleteById(id);
+
+	//ocultar producto
+	Productos productoOcultado = productosRepository.findById(id).get();
+	productoOcultado.setMostrar(false);
+	productosRepository.save(productoOcultado);
+
+	//borrar del carrito de los usuarios
 	carritosRepository.deleteByProductoid(id);
 	return "{ \"success\":true, \"msg\":\"producto borrado\" }";
     }

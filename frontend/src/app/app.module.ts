@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminItemComponent } from './components/admin/admin-item/admin-item.component';
 import { EditFormComponent } from './components/admin/edit-form/edit-form.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { EditFormComponent } from './components/admin/edit-form/edit-form.compon
     AdminComponent,
     AdminItemComponent,
     EditFormComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 package com.utn.estore.repositories;
 
+import java.util.List;
+
 import com.utn.estore.models.Productos;
 
 import org.springframework.data.repository.CrudRepository;
@@ -9,5 +11,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ProductosRepository extends CrudRepository<Productos, Integer> {
 
+	List<Productos> findByMostrar(Boolean mostrar);
 
 }

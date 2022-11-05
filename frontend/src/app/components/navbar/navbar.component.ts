@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { LocalStorageService } from '../services/localstorage.service';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public localStorageService: LocalStorageService,
-    public cartService: CartService
+    public cartService: CartService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -39,5 +41,11 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.localStorageService.clear();
     this.cartService.cantidad = undefined;
+    if (
+      this.router.isActive('/cart', false) ||
+      this.router.isActive('/admin', false)
+    ) {
+      this.router.navigate(['/home']);
+    }
   }
 }

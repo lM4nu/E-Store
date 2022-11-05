@@ -16,5 +16,6 @@ public class Usuarios {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private String realname;
     private String password;
 }

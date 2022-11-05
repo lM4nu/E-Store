@@ -1,5 +1,6 @@
 package com.utn.estore.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,4 +19,7 @@ public class Productos {
     private String name;
     private Integer price;
     private String imgpath;
+
+    @Column(columnDefinition = "BOOL")
+    private Boolean mostrar;
 }

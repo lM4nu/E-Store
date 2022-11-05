@@ -10,6 +10,10 @@ export class ProductsService {
   API = 'http://localhost:8080';
 
   public getProducts() {
+    return this.httpClient.get(`${this.API}/productos/publicall`);
+  }
+
+  public getAllProducts(){
     return this.httpClient.get(`${this.API}/productos/all`);
   }
 

@@ -33,7 +33,7 @@ export class AdminComponent implements OnInit {
         } else {
           this.isAdmin = true;
 
-          this.productsService.getProducts().subscribe((res: any) => {
+          this.productsService.getAllProducts().subscribe((res: any) => {
             this.products = res;
           }),
             (err: any) => {
