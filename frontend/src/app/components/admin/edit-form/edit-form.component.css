@@ -19,6 +19,14 @@
   height: 50%;
   width: 30%;
   z-index: 99;
+  border-radius: 10px;
+  border-color: black;
+  background-color: rgb(241, 238, 234);
+}
+
+label{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .hidden {

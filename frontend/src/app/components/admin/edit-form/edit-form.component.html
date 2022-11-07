@@ -35,14 +35,14 @@
       />
     </div>
     <div>
-      <input *ngIf="productInfo.id" class="btn" type="submit" value="Editar" />
+      <input *ngIf="productInfo.id" class="btn btn-primary" type="submit" value="Editar" />
       <input
         *ngIf="!productInfo.id"
-        class="btn"
+        class="btn btn-success"
         type="submit"
         value="Agregar"
       />
-      <input *ngIf="productInfo.id" (click)="borrar()" class="btn" type="button" value="Borrar" />
+      <input *ngIf="productInfo.id" (click)="borrar()" class="btn btn-danger" type="button" value="Borrar" />
     </div>
   </form>
 </div>
