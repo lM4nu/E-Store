@@ -12,12 +12,13 @@ import { ProductsService } from '../services/products.service';
 export class CartComponent implements OnInit {
   constructor(
     private localStorageService: LocalStorageService,
-    private cartService: CartService,
+    public cartService: CartService,
     private router: Router,
     private productsService: ProductsService
   ) {}
 
   cartData?: any;
+  
 
   ngOnInit(): void {
     const token = this.localStorageService.getToken();
@@ -43,5 +44,10 @@ export class CartComponent implements OnInit {
     } else {
       this.router.navigate(['/login']);
     }
+
+    
   }
+
+
+
 }

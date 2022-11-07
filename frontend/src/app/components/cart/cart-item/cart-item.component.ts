@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cart-item',
@@ -8,6 +9,8 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartItemComponent implements OnInit {
   @Input() info?: any;
+  faPlusCircle = faPlusCircle;
+  faMinusCircle = faMinusCircle;
 
   constructor(private cartService: CartService) {}
 
@@ -36,4 +39,5 @@ export class CartItemComponent implements OnInit {
       }
     );
   }
+
 }

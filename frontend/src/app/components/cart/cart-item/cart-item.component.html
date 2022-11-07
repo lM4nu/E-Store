@@ -1,9 +1,38 @@
 <div *ngIf="info">
   <!--optional chaining-->
-  <p>
-    <input type="button" value="-" (click)="test(-1, info)" />
-    {{ info.details?.name }} Precio:
-    {{ info.details?.price * info.cantidad }} Cantidad: {{ info.cantidad }}
-    <input type="button" value="+" (click)="test(1, info)" />
-  </p>
+  
+    <div>
+      <table id="fondo">
+        <colgroup>
+            <col span="1" style="width: 30%;" />
+            <col span="1" style="width: 30%;" />
+            <col span="1" style="width: 30%;" />
+            <col span="1" style="width: 30%;" />
+        </colgroup>
+        
+          <tbody>
+          <tr> {{ info.details?.name }} 
+           <td>
+            {{ info.details?.price * info.cantidad }}
+            <td>
+            {{ info.cantidad }}
+          </td>
+            <td>
+
+              <!-- INTENTO USAR UN ICONO DE FONTAWESOME (importado e instanciado en el .ts)
+              <fa-icon  
+               [icon]="faMinusCircle" 
+               (click)="test(-1, info)"  
+              >  
+            </fa-icon> -->
+
+            <input type="button" value="-" (click)="test(-1, info)" />
+            <input type="button" value="+" (click)="test(1, info)" />
+             
+          </td>
+           </tr>    
+          </tbody> 
+        </table>
+
+</div>
 </div>

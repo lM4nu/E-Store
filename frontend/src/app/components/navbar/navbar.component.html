@@ -16,8 +16,8 @@
       >Login</a
     >
   </div>
-  <h1 class="navbar-brand">{{ title }}</h1>
-  <div class="left">
+  <h1 class="navbar-brand">  {{ title }}  </h1>
+  <div class="right">
     <a *ngIf="localStorageService.isLogged()" class="btn" (click)="logout()"
       >LogOut</a
     >

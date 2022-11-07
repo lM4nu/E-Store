@@ -1,3 +1,39 @@
 <div class="cart-container">
+
+<h1>Carrito de compras</h1>
+
+  <table id="fondo">
+    <colgroup>
+        <col span="1" style="width: 29.3%;" />
+        <col span="1" style="width: 26.6%;" />
+        <col span="1" style="width: 30.5%;" />
+        <col span="1" style="width: 30%;" />
+        
+    </colgroup>
+    
+    <tbody>
+      <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Acciones</th>
+      </tr>
+    </tbody>
+    </table>
+
   <app-cart-item *ngFor="let item of cartData" [info]="item"></app-cart-item>
+
+  
+  <!-- NO ANDA
+  <ng-template>
+    [ngIf]="this.cartService.cantidad == null"
+    <div>Tu carrito está vacío</div>
+  </ng-template> --> 
+
+  <div id="confirmar-container">
+    <a id="confirmar-button">
+        Confirmar
+    </a>
+</div>
+
 </div>
