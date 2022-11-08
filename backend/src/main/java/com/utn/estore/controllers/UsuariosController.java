@@ -19,21 +19,31 @@ public class UsuariosController {
     @Autowired
     private UsuariosRepository usuariosRepository;
 
+    // metodo POST
+    // funcion add de tipo string recibe por parametro del body
+    // un newUsuario de tipo Usuarios
     @PostMapping("/add")
     public @ResponseBody String add(@RequestBody Usuarios newUsuario) {
-	usuariosRepository.save(newUsuario);
-	return "{ \"success\":true, \"msg\":\"usuario agregado\" }";
+	usuariosRepository.save(newUsuario); //lo guarda 
+	return "{ \"success\":true, \"msg\":\"usuario agregado\" }"; // devuelve un string json de respuesta
     }
 
+    // metodo GET
+    // funcion getAll de tipo iterable de Usuarios
+    // devuelve lo que devuelve findAll del repository
+    // es decir un iterable con todos los usuarios
     @GetMapping("/all")
     public @ResponseBody Iterable<Usuarios> getAll() {
         return usuariosRepository.findAll();
     }
 
+    // metodo DELETE
+    // funcion delete de tipo string recibo por parametro la id
+    // en el string del path 
     @DeleteMapping("/delete/{id}")
     public @ResponseBody String delete(@PathVariable Integer id) {
-        usuariosRepository.deleteById(id);
-	return "{ \"success\":true, \"msg\":\"usuario borrado\" }";
+        usuariosRepository.deleteById(id); // lo borra
+	return "{ \"success\":true, \"msg\":\"usuario borrado\" }"; // devuelve un string json de respuesta
     }
 
 }

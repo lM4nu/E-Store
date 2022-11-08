@@ -9,17 +9,18 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+//crea getters y setters automaticamente
 @Data
 @Entity
-@Table(name = "productos")
+@Table(name = "productos") // especifico el nombre de la tabla
 public class Productos {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // especifica que el integer id sea la primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//identity significa que este campo sea la primary key en las columnas y tenga auto-increment
     private Integer id;
     private String name;
     private Integer price;
     private String imgpath;
 
-    @Column(columnDefinition = "BOOL")
+    @Column(columnDefinition = "BOOL")// especifico el tipo de dato sql
     private Boolean mostrar;
 }
