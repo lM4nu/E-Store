@@ -1,6 +1,5 @@
+<!--mostrar solo si cartItem no es undefined-->
 <div *ngIf="cartItem">
-  <!--optional chaining-->
-
   <div>
     <table id="fondo">
       <colgroup>
@@ -10,8 +9,11 @@
         <col span="1" style="width: 30%" />
       </colgroup>
 
+      <!--usamos interpolacion para mostrar todos los datos de cartItem-->
       <tbody>
         <tr>
+          <!--optional chaining-->
+          <!--https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining-->
           {{
             cartItem.details?.name
           }}
@@ -23,6 +25,8 @@
             {{ cartItem.cantidad }}
           </td>
           <td>
+            <!--dos botones + y - al clickearlos llaman a la funcion add()-->
+            <!--y le pasan por parametro en cuanto incrementar el numero y que item del carrito editar-->
             <input type="button" value="-" (click)="add(-1, cartItem)" />
             <input type="button" value="+" (click)="add(1, cartItem)" />
           </td>
