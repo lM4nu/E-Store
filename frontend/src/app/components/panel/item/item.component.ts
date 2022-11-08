@@ -7,16 +7,17 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./item.component.css'],
 })
 export class ItemComponent implements OnInit {
-  @Input() info?: any;
+  // se recibira informacion para esta variable
+  @Input() productInfo?: any;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {}
 
-  log(info: any) {
-    console.log(info);
+  add(info: any) {
     const productId = info.id;
+    /* se llama a cartService para que agregue
+    el producto con esa id */
     this.cartService.addItemCarrito(productId);
-    //this.cartService.editarCantidad(+1);
   }
 }

@@ -1,6 +1,12 @@
 <nav class="naav">
   <div class="left">
+    <!--routerLink redirecciona a donde se le indique-->
+    <!--routerLinkActive le asignara la clase active al elemento donde se use-->
+    <!--si la ruta de routerLink es en la que estamos-->
     <a class="btn" routerLink="/home" routerLinkActive="active">Panel</a>
+    <!--el ngIf hace que solo se muestre este elemento si esa funcion del localStorageService-->
+    <!--devuelve 1-->
+    <!--es el admin quien deberia tener esta id, por lo que debe ser el primero en registrarse-->
     <a
       *ngIf="localStorageService.getUserId() == 1"
       class="btn"
@@ -8,6 +14,9 @@
       routerLinkActive="active"
       >Panel Admin</a
     >
+    <!--el ngIf hace que solo se muestre este elemento si esa funcion del localStorageService-->
+    <!--devuelve false y es invertido por !-->
+    <!--es decir no esta logeado-->
     <a
       *ngIf="!localStorageService.isLogged()"
       class="btn"
@@ -18,6 +27,10 @@
   </div>
   <h1 class="navbar-brand">{{ title }}</h1>
   <div class="right">
+    <!--solo se muestra si la funcion de localStorageService-->
+    <!--devuelve true-->
+    <!--que lo hace cuando estamos logeados-->
+    <!--al hacerle click ejecuta la funcion logout() que nos deslogeara-->
     <a *ngIf="localStorageService.isLogged()" class="btn" (click)="logout()"
       >LogOut</a
     >
@@ -25,6 +38,10 @@
       <a routerLink="/cart">
         <fa-icon class="icon" [icon]="faCart"></fa-icon>
       </a>
+      <!--muestra un valor declarado en el servicio cart-->
+      <!--esto es posible porque en el constructor esta declarado como publico-->
+      <!--por eso se puede usar en el template-->
+      <!--si el valor es undefined no muestra nada-->
       <h2 class="nmrocantidad">{{ cartService.cantidad }}</h2>
     </div>
   </div>

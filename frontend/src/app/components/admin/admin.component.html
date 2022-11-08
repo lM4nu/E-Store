@@ -1,15 +1,26 @@
+<!--componente formulario que recibe la variable currentProduct-->
+<!--que se setea al editar un producto-->
+<!--tambien cuando se emite un evento en ese componente-->
+<!--se ejecuta la funcion hideForm con lo que se emitio-->
 <app-edit-form
   [productInfo]="currentProduct"
   (hideEmit)="hideForm($event)"
 ></app-edit-form>
 
+<!--muestra el panel solo si isAdmin es true-->
 <div class="panel" *ngIf="isAdmin">
+  <!--muestra un componente admin-item por cada elemento del-->
+  <!--array de products y le pasa cada elemento-->
+  <!--tambien cuando se emite un evento en ese componente-->
+  <!--se ejecuta la funcion showform con lo que se emitio-->
   <app-admin-item
-    *ngFor="let item of products"
-    [info]="item"
-    (event)="showForm($event)"
+    *ngFor="let product of products"
+    [productInfo]="product"
+    (currentProductEvent)="showForm($event)"
   ></app-admin-item>
 
+  <!--seguido de los productos un elemento mas con un boton para agregar-->
+  <!--productos-->
   <div class="item">
     <input (click)="addProduct()" class="add-btn" type="button" value="+" />
   </div>

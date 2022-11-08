@@ -7,15 +7,18 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./admin-item.component.css'],
 })
 export class AdminItemComponent implements OnInit {
-  @Input() info?: any;
+  // recibe un objeto producto
+  @Input() productInfo?: any;
 
-  @Output() event = new EventEmitter();
+  //evento que emitira en la funcion editar()
+  @Output() currentProductEvent = new EventEmitter();
 
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {}
 
-  editar(info: any) {
-    this.event.emit(info);
+  // hace que el emitter emita el objeto con todos los productos al padre
+  editar(product: object) {
+    this.currentProductEvent.emit(product);
   }
 }

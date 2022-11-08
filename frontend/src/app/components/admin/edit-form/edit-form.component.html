@@ -1,7 +1,16 @@
+<!--solo se muestra si productInfo no es undefined-->
+<!--ventana negra con opacidad, al ser clickeada ejecuta la funcion hide() que-->
+<!--la oculta y tambien el formulario-->
 <div *ngIf="productInfo" class="modalbg" (click)="hide()"></div>
 
+<!--solo se muestra si productInfo no es undefined-->
+<!--ventana blanca con el formulario-->
 <div *ngIf="productInfo" class="modalwindow">
+  <!--formulario de angular, al clickear el boton de type submit-->
+  <!--se ejecuta la funcion edit con los datos del formulario-->
   <form #formData="ngForm" (ngSubmit)="edit(formData)">
+    <!--cada input tiene un ngModel, necesario para que este-->
+    <!--en formData-->
     <div>
       <label for="name">Name</label>
       <input
@@ -46,18 +55,24 @@
       />
     </div>
     <div>
+      <!--boton de editar solo se muestra si recibimos un productInfo CON id-->
+      <!--ejecuta la funcion especificada en ngSubmit-->
       <input
         *ngIf="productInfo.id"
         class="btn btn-primary"
         type="submit"
         value="Editar"
       />
+      <!--boton de agregar solo se muestra si recibimos un productInfo SIN id-->
+      <!--ejecuta la funcion especificada en ngSubmit-->
       <input
         *ngIf="!productInfo.id"
         class="btn btn-success"
         type="submit"
         value="Agregar"
       />
+      <!--boton de borrar solo se muestra si recibimos un productInfo CON id-->
+      <!--ejecuta la funcion borrar()-->
       <input
         *ngIf="productInfo.id"
         (click)="borrar()"

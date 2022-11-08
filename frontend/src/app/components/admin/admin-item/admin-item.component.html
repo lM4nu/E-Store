@@ -1,17 +1,23 @@
-<div *ngIf="info" class="item">
+<!--solo se muestra si productInfo no es undefined-->
+<div *ngIf="productInfo" class="item">
+  <!--usa interpolaciones para mostrar todos los datos-->
+  <!--del objeto productInfo-->
   <div class="img-container">
-    <img [src]="info.imgpath" alt="product-image" />
+    <img [src]="productInfo.imgpath" alt="product-image" />
   </div>
   <div class="info-container">
-    <p class="info-text">{{ info.name }}</p>
-    <p class="info-text">${{ info.price }}</p>
+    <p class="info-text">{{ productInfo.name }}</p>
+    <p class="info-text">${{ productInfo.price }}</p>
   </div>
   <div class="btn-container">
+    <!--al clickear el boton editar-->
+    <!--se ejecuta la funcion editar y se le pasa-->
+    <!--el objeto producto-->
     <input
       class="add-btn"
       type="button"
       value="Editar"
-      (click)="editar(info)"
+      (click)="editar(productInfo)"
     />
   </div>
 </div>

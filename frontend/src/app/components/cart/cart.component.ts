@@ -17,37 +17,32 @@ export class CartComponent implements OnInit {
     private productsService: ProductsService
   ) {}
 
+  //inicializar cardData como undefined
   cartData?: any;
-  
 
   ngOnInit(): void {
+    // al inicializar el componente guardar el token del usuario
     const token = this.localStorageService.getToken();
+    //solo si el usuario esta logeado
     if (this.localStorageService.isLogged()) {
-      this.cartService.getCarrito(token).subscribe(
-        (res: any) => {
-          this.cartData = res.carritoContent;
-          this.cartData.forEach((item: any, index: any) => {
-            this.productsService.getProduct(item.productoid).subscribe(
-              (res) => {
-                this.cartData[index].details = res;
-              },
-              (err) => {
-                console.log(err);
-              }
-            );
-          });
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+      // fetchear el carrito de ese usuario
+      this.cartService.getCarrito(token).subscribe((res: any) => {
+        // guardar el array en la variable cartData
+        this.cartData = res.carritoContent;
+        this.cartData.forEach((cartItem: any, index: any) => {
+          // cada item del carrito tiene el atributo productoid
+          // que podemos usar para tener los detalles del producto
+          this.productsService
+            .getProduct(cartItem.productoid)
+            .subscribe((res) => {
+              this.cartData[index].details = res;
+              // y los asignamos al atributo details de cada uno
+            });
+        });
+      });
     } else {
+      // si no esta logeado redireccionar a login
       this.router.navigate(['/login']);
     }
-
-    
   }
-
-
-
 }

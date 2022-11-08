@@ -1,4 +1,4 @@
-<div *ngIf="info">
+<div *ngIf="cartItem">
   <!--optional chaining-->
 
   <div>
@@ -13,25 +13,18 @@
       <tbody>
         <tr>
           {{
-            info.details?.name
+            cartItem.details?.name
           }}
           <td>
-            {{ info.details?.price * info.cantidad }}
+            {{ cartItem.details?.price * cartItem.cantidad }}
           </td>
 
           <td>
-            {{ info.cantidad }}
+            {{ cartItem.cantidad }}
           </td>
           <td>
-            <!-- INTENTO USAR UN ICONO DE FONTAWESOME (importado e instanciado en el .ts)
-              <fa-icon
-               [icon]="faMinusCircle"
-               (click)="test(-1, info)"
-              >
-            </fa-icon> -->
-
-            <input type="button" value="-" (click)="test(-1, info)" />
-            <input type="button" value="+" (click)="test(1, info)" />
+            <input type="button" value="-" (click)="add(-1, cartItem)" />
+            <input type="button" value="+" (click)="add(1, cartItem)" />
           </td>
         </tr>
       </tbody>

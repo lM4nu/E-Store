@@ -1,31 +1,16 @@
 <head>
-  <style>
-    input {
-      outline: none;
-      width: 35%;
-      padding: 5px 20px;
-      margin: 2px 0;
-      box-sizing: border-box;
-      border: 2px solid black;
-      border-radius: 6px;
-    }
-
-    input:focus {
-      background-color: rgb(222, 231, 235);
-      border: 3px solid rgb(9, 162, 223);
-    }
-
-    input[type="submit"]:focus {
-      text-decoration: none;
-      background-color: blue;
-    }
-  </style>
+  <style></style>
 </head>
 
 <div class="form-container">
+  <!--la funcion de ngSubmit, login(), se ejecutara al clickear el boton-->
+  <!--que tenga type submit, y recibira por parametro #formData, el cual-->
+  <!--se refiere al formulario, y si estan bien puestos los ngModel-->
+  <!--tendremos un objeto con las claves y valores de cada input-->
   <form #formData="ngForm" (ngSubmit)="login(formData)">
     <div class="inputs">
       <label for="name"> <h1>Nombre de Usuario:</h1> </label>
+      <!--cada input debe tener ngModel, name e id bien nombrados-->
       <input ngModel type="text" name="name" id="name" required />
     </div>
     <div class="inputs">
@@ -36,6 +21,8 @@
       <label for="password"> <h1>Contraseña:</h1> </label>
       <input ngModel type="password" name="password" id="password" required />
     </div>
+    <!--muestra este div con el msg adentro solo si el mensaje-->
+    <!--no es undefined-->
     <div *ngIf="msg" class="msg">
       {{ msg }}
     </div>

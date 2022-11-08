@@ -9,14 +9,14 @@ import { ProductsService } from '../services/products.service';
 export class PanelComponent implements OnInit {
   constructor(private productsService: ProductsService) {}
 
+  //inicializado products
   products: any;
 
   ngOnInit(): void {
+    /*al iniciar el componente fetchear todos los productos y guardarlos
+    en la variable products */
     this.productsService.getProducts().subscribe((res: any) => {
       this.products = res;
-    }),
-      (err: any) => {
-        console.log(err);
-      };
+    });
   }
 }

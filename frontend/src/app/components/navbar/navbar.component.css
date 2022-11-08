@@ -49,6 +49,8 @@ h1 {
 .icon {
   height: 100%;
   font-size: 2em;
+  /*font-size: 15vh;*/
+  text-align: center;
   color: white;
 }
 

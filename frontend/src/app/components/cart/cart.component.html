@@ -17,13 +17,10 @@
     </tbody>
   </table>
 
-  <app-cart-item *ngFor="let item of cartData" [info]="item"></app-cart-item>
-
-  <!-- NO ANDA
-  <ng-template>
-    [ngIf]="this.cartService.cantidad == null"
-    <div>Tu carrito está vacío</div>
-  </ng-template> -->
+  <app-cart-item
+    *ngFor="let cart of cartData"
+    [cartItem]="cart"
+  ></app-cart-item>
 
   <div id="confirmar-container">
     <a id="confirmar-button"> Confirmar </a>

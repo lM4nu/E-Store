@@ -1,3 +1,6 @@
 <div class="panel">
-  <app-item *ngFor="let item of products" [info]="item"></app-item>
+  <!--al componente app-item se le setea la propiedad productInfo-->
+  <!--con cada elemento de products que es un array de producto-->
+  <!--tendremos un app-item por cada elemetno que haya en products-->
+  <app-item *ngFor="let product of products" [productInfo]="product"></app-item>
 </div>

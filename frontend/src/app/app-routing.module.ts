@@ -6,6 +6,10 @@ import { LoginComponent } from './components/login/login.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { RegisterComponent } from './components/register/register.component';
 
+/*
+hay 5 rutas, cada una muestra el componente de su mismo nombre
+y la ruta '' siempre es redireccionada a /home
+ */
 const routes: Routes = [
   { path: 'home', component: PanelComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

@@ -1,8 +1,9 @@
 footer {
-  /*margin-top: 50vh;*/
   background-color: #0a4275;
+  padding: 0;
+  border: 0;
+  margin: 0;
   height: 20vh;
-  width: 100vw;
 }
 
 .arriba {

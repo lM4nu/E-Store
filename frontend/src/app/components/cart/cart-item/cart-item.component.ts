@@ -8,36 +8,34 @@ import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./cart-item.component.css'],
 })
 export class CartItemComponent implements OnInit {
-  @Input() info?: any;
+  //inicializa cartItem como undefined
+  @Input() cartItem?: any;
   faPlusCircle = faPlusCircle;
   faMinusCircle = faMinusCircle;
 
   constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {
-    //console.log(this.info);
-  }
+  ngOnInit(): void {}
 
-  test(num: number, item: any) {
-    this.cartService.editarCantidadItem(num, item).subscribe(
-      (res: any) => {
-        if (res.success) {
-          if (this.info.cantidad + num <= 0) {
-            this.info = false;
-            //this.cartService.cantidad = this.cartService.cantidad - 1;
-            this.cartService.editarCantidad(-1);
-            //console.log(this.cartService.cantidad);
-          } else {
-            this.info.cantidad = this.info.cantidad + num;
-          }
-
-          //emiter(this.info);
+  // recibe un numero y un objeto item de carrito
+  add(num: number, cartItem: object) {
+    /* llama a la funcion de cartService que se encarga de editar
+    le pasa los parametros necesarios
+    y subscribe la request que devuelve */
+    this.cartService.editarCantidadItem(num, cartItem).subscribe((res: any) => {
+      /* si la response devuelve sucess, estamos seguros que en el backend se edito
+        asi que actualizo el frontend*/
+      if (res.success) {
+        /* si es 0 o menos fue borrado asi que lo ocultamos
+          la proxima vez que entremos o refresheemos directamente no sera fetcheado */
+        if (this.cartItem.cantidad + num <= 0) {
+          this.cartItem = false;
+          this.cartService.editarCantidad(num);
+        } else {
+          // si no fue borrado actualizamos la cantidad
+          this.cartItem.cantidad = this.cartItem.cantidad + num;
         }
-      },
-      (err: any) => {
-        console.log(err);
       }
-    );
+    });
   }
-
 }

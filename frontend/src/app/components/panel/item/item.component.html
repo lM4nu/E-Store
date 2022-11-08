@@ -1,14 +1,24 @@
-<div *ngIf="info" class="item">
+<!--solo mostrar si productInfo tiene algun valor-->
+<div *ngIf="productInfo" class="item">
+  <!--muestro todos los datos que tiene el objeto productInfo-->
   <div class="img-container">
-    <img [src]="info.imgpath" alt="product-image" />
+    <img [src]="productInfo.imgpath" alt="product-image" />
   </div>
   <div class="info-container">
     <div class="info-data">
-      <p class="info-text">{{ info.name }}</p>
-      <p class="info-text">${{ info.price }}</p>
+      <p class="info-text">{{ productInfo.name }}</p>
+      <p class="info-text">${{ productInfo.price }}</p>
     </div>
     <div class="btn-container">
-      <input class="add-btn" type="button" value="+" (click)="log(info)" />
+      <!--al clickear el boton se ejecutara la funcion add-->
+      <!--y se le pasara por parametro el objeto con la informacion-->
+      <!--del producto-->
+      <input
+        class="add-btn"
+        type="button"
+        value="+"
+        (click)="add(productInfo)"
+      />
     </div>
   </div>
 </div>
