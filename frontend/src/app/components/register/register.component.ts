@@ -16,6 +16,8 @@ export class RegisterComponent implements OnInit {
     private router: Router
   ) {}
 
+  msg: any;
+
   ngOnInit(): void {
     if (this.localStorageService.isLogged()) {
       this.router.navigate(['/home']);
@@ -23,13 +25,16 @@ export class RegisterComponent implements OnInit {
   }
 
   login(formInput: any) {
-    console.log(formInput.form.value);
-    this.authService.registrar(formInput.form.value).subscribe((res: any) => {
-      if (res.success) {
-        this.localStorageService.setToken(res.token);
-        this.localStorageService.setUserId(res.id);
-        window.location.replace('/home');
-      }
-    });
+    if (formInput.form.status == 'VALID') {
+      this.authService.registrar(formInput.form.value).subscribe((res: any) => {
+        if (res.success) {
+          this.localStorageService.setToken(res.token);
+          this.localStorageService.setUserId(res.id);
+          window.location.replace('/home');
+        }
+      });
+    } else {
+      this.msg = 'Falta ingresar datos';
+    }
   }
 }

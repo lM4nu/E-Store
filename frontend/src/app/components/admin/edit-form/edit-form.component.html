@@ -35,14 +35,36 @@
       />
     </div>
     <div>
-      <input *ngIf="productInfo.id" class="btn btn-primary" type="submit" value="Editar" />
+      <label for="mostrar">Mostrar</label>
+      <input
+        ngModel
+        type="checkbox"
+        name="mostrar"
+        id="mostrar"
+        checked="true"
+        required
+      />
+    </div>
+    <div>
+      <input
+        *ngIf="productInfo.id"
+        class="btn btn-primary"
+        type="submit"
+        value="Editar"
+      />
       <input
         *ngIf="!productInfo.id"
         class="btn btn-success"
         type="submit"
         value="Agregar"
       />
-      <input *ngIf="productInfo.id" (click)="borrar()" class="btn btn-danger" type="button" value="Borrar" />
+      <input
+        *ngIf="productInfo.id"
+        (click)="borrar()"
+        class="btn btn-danger"
+        type="button"
+        value="Borrar"
+      />
     </div>
   </form>
 </div>

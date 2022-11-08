@@ -21,6 +21,7 @@ export class EditFormComponent implements OnInit {
 
   edit(form: any) {
     let dataRequest = form.form.value;
+    dataRequest.mostrar = Boolean(dataRequest.mostrar);
 
     if (this.productInfo.id) {
       this.productsService

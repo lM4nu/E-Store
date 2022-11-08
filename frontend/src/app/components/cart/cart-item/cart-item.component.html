@@ -1,38 +1,40 @@
 <div *ngIf="info">
   <!--optional chaining-->
-  
-    <div>
-      <table id="fondo">
-        <colgroup>
-            <col span="1" style="width: 30%;" />
-            <col span="1" style="width: 30%;" />
-            <col span="1" style="width: 30%;" />
-            <col span="1" style="width: 30%;" />
-        </colgroup>
-        
-          <tbody>
-          <tr> {{ info.details?.name }} 
-           <td>
+
+  <div>
+    <table id="fondo">
+      <colgroup>
+        <col span="1" style="width: 29.3%" />
+        <col span="1" style="width: 26.6%" />
+        <col span="1" style="width: 30.5%" />
+        <col span="1" style="width: 30%" />
+      </colgroup>
+
+      <tbody>
+        <tr>
+          {{
+            info.details?.name
+          }}
+          <td>
             {{ info.details?.price * info.cantidad }}
-            <td>
+          </td>
+
+          <td>
             {{ info.cantidad }}
           </td>
-            <td>
-
-              <!-- INTENTO USAR UN ICONO DE FONTAWESOME (importado e instanciado en el .ts)
-              <fa-icon  
-               [icon]="faMinusCircle" 
-               (click)="test(-1, info)"  
-              >  
+          <td>
+            <!-- INTENTO USAR UN ICONO DE FONTAWESOME (importado e instanciado en el .ts)
+              <fa-icon
+               [icon]="faMinusCircle"
+               (click)="test(-1, info)"
+              >
             </fa-icon> -->
 
             <input type="button" value="-" (click)="test(-1, info)" />
             <input type="button" value="+" (click)="test(1, info)" />
-             
           </td>
-           </tr>    
-          </tbody> 
-        </table>
-
-</div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -16,7 +16,7 @@
       >Login</a
     >
   </div>
-  <h1 class="navbar-brand">  {{ title }}  </h1>
+  <h1 class="navbar-brand">{{ title }}</h1>
   <div class="right">
     <a *ngIf="localStorageService.isLogged()" class="btn" (click)="logout()"
       >LogOut</a
@@ -25,7 +25,7 @@
       <a routerLink="/cart">
         <fa-icon class="icon" [icon]="faCart"></fa-icon>
       </a>
-      <h2>{{ cartService.cantidad }}</h2>
+      <h2 class="nmrocantidad">{{ cartService.cantidad }}</h2>
     </div>
   </div>
 </nav>

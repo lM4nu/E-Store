@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
+  msg: any;
+
   ngOnInit(): void {
     if (this.localStorageService.isLogged()) {
       this.router.navigate(['/home']);
@@ -24,32 +26,36 @@ export class LoginComponent implements OnInit {
   }
 
   login(formData: any) {
-    this.authService.logear(formData.form.value).subscribe(
-      (res: any) => {
-        if (res.success) {
-          this.localStorageService.setToken(res.token);
-          this.localStorageService.setUserId(res.id);
-          this.cartService.getCarrito(res.token).subscribe((res: any) => {
-            if (res.carritoContent.length == 0) {
-              this.cartService.cantidad = undefined;
+    if (formData.form.status == 'VALID') {
+      this.authService.logear(formData.form.value).subscribe(
+        (res: any) => {
+          if (res.success) {
+            this.localStorageService.setToken(res.token);
+            this.localStorageService.setUserId(res.id);
+            this.cartService.getCarrito(res.token).subscribe((res: any) => {
+              if (res.carritoContent.length == 0) {
+                this.cartService.cantidad = undefined;
+              } else {
+                this.cartService.cantidad = res.carritoContent.length;
+              }
+            });
+            if (res.admin) {
+              //window.location.replace('/admin');
+              this.router.navigate(['/admin']);
             } else {
-              this.cartService.cantidad = res.carritoContent.length;
+              //window.location.replace('/home');
+              this.router.navigate(['/home']);
             }
-          });
-          if (res.admin) {
-            //window.location.replace('/admin');
-            this.router.navigate(['/admin']);
           } else {
-            //window.location.replace('/home');
-            this.router.navigate(['/home']);
+            console.log(res);
           }
-        } else {
-          console.log(res);
+        },
+        (err) => {
+          console.log(err);
         }
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+      );
+    } else {
+      this.msg = 'falta ingresar datos';
+    }
   }
 }

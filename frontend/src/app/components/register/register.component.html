@@ -1,27 +1,26 @@
-
 <head>
-  <style> 
-  input{
-    outline: none;
-    width: 35%;
-    padding: 5px 20px;
-    margin: 2px 0;
-    box-sizing: border-box;
-    border: 2px solid black;
-    border-radius: 6px;
-  }
+  <style>
+    input {
+      outline: none;
+      width: 35%;
+      padding: 5px 20px;
+      margin: 2px 0;
+      box-sizing: border-box;
+      border: 2px solid black;
+      border-radius: 6px;
+    }
 
-  input:focus {
-  background-color: rgb(222, 231, 235);
-  border: 3px solid rgb(9, 162, 223);
-}
+    input:focus {
+      background-color: rgb(222, 231, 235);
+      border: 3px solid rgb(9, 162, 223);
+    }
 
-input[type=submit]:focus {
-  text-decoration: none;
-  background-color: blue;
-}
+    input[type="submit"]:focus {
+      text-decoration: none;
+      background-color: blue;
+    }
   </style>
-  </head>
+</head>
 
 <div class="form-container">
   <form #formData="ngForm" (ngSubmit)="login(formData)">
@@ -37,9 +36,11 @@ input[type=submit]:focus {
       <label for="password"> <h1>Contraseña:</h1> </label>
       <input ngModel type="password" name="password" id="password" required />
     </div>
+    <div *ngIf="msg" class="msg">
+      {{ msg }}
+    </div>
     <div class="btns">
       <input class="btn" type="submit" value="Registrarse" />
     </div>
   </form>
 </div>
-

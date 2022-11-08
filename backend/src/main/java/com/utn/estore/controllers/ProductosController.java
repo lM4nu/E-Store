@@ -34,14 +34,10 @@ public class ProductosController {
 
     @PostMapping("/addarray")
     public @ResponseBody String add(@RequestBody Productos[] newproductos) {
-		//for(int i =0; i< newproductos.length;i++){
-			//productosRepository.save(newproductos[i]);
-		//}
-
 		for(Productos i: newproductos){
 			productosRepository.save(i);
-
 		}
+
 	return "{ \"success\":true, \"msg\":\"productos agregados\" }";
     }
 
@@ -70,13 +66,7 @@ public class ProductosController {
     @DeleteMapping("/delete/{id}")
     public @ResponseBody String delete(@PathVariable Integer id) {
 	// borrar producto
-        //productosRepository.deleteById(id);
-
-	//ocultar producto
-	Productos productoOcultado = productosRepository.findById(id).get();
-	productoOcultado.setMostrar(false);
-	productosRepository.save(productoOcultado);
-
+	productosRepository.deleteById(id);
 	//borrar del carrito de los usuarios
 	carritosRepository.deleteByProductoid(id);
 	return "{ \"success\":true, \"msg\":\"producto borrado\" }";
