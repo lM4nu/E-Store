@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `carrito` (
   `productoid` int(11) DEFAULT NULL,
   `usuarioid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla estoredb.carrito: ~0 rows (aproximadamente)
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 
 -- Volcando datos para la tabla estoredb.productos: ~6 rows (aproximadamente)
 INSERT INTO `productos` (`id`, `imgpath`, `mostrar`, `name`, `price`) VALUES
-	(1, 'https://http2.mlstatic.com/D_NQ_NP_950853-MLA50741229627_072022-O.webp', 1, 'Sábana', 2700),
+	(1, 'https://http2.mlstatic.com/D_NQ_NP_846944-MLA31043118891_062019-O.jpg', 1, 'Mesa', 2700),
 	(2, 'https://ken-brown.com.ar/wp-content/uploads/2019/10/KBL400-licuadora-con_molinillo_Ken-Brown-600x600.jpg', 1, 'Licuadora', 5200),
 	(3, 'https://http2.mlstatic.com/D_NQ_NP_848951-MLA49760260536_042022-O.webp', 1, 'Cortina', 6000),
 	(4, 'https://http2.mlstatic.com/D_NQ_NP_952741-MLA47767831732_102021-O.webp', 1, 'Almohada', 2100),
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `password` varchar(255) DEFAULT NULL,
   `realname` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla estoredb.usuarios: ~0 rows (aproximadamente)
 
