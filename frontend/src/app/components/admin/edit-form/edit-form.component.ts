@@ -26,6 +26,17 @@ export class EditFormComponent implements OnInit {
     /* el input checkbox cuando no esta marcado no tiene el valor
     falso sino '' que al ser evaluado si devuelve falso */
     product.mostrar = Boolean(product.mostrar);
+    // si cualquiera de los valores fue dejado vacio se deja el valor
+    // que ya tenia, el que se ve en el placeholder
+    product.name == ''
+      ? (product.name = this.productInfo.name)
+      : (product.name = product.name);
+    product.price == ''
+      ? (product.price = this.productInfo.price)
+      : (product.price = product.price);
+    product.imgpath == ''
+      ? (product.imgpath = this.productInfo.imgpath)
+      : (product.imgpath = product.imgpath);
 
     // si el producto tiene id entonces se llama la funcion edit
     if (this.productInfo.id) {
