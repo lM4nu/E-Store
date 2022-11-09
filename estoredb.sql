@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `name` varchar(255) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla estoredb.productos: ~6 rows (aproximadamente)
 INSERT INTO `productos` (`id`, `imgpath`, `mostrar`, `name`, `price`) VALUES

@@ -69,8 +69,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/home']);
           }
         } else {
-          //si la response no nos devuelve success entonces logeamos el error
-          console.log(res);
+          //si la response no nos devuelve success entonces mostramos el error
+          this.msg = 'datos incorrectos';
         }
       });
     } else {
