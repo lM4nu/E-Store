@@ -9,7 +9,6 @@ import { CartComponent } from './components/cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -25,7 +24,6 @@ import { RegisterComponent } from './components/register/register.component';
     ItemComponent,
     CartComponent,
     LoginComponent,
-    CartItemComponent,
     FooterComponent,
     AdminComponent,
     AdminItemComponent,

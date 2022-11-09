@@ -1,8 +1,10 @@
 .cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: 70vh;
 }
 h1 {
-  margin-left: 42.5%;
   color: #111311;
   background: rgb(0, 0, 0);
   background: linear-gradient(
@@ -17,17 +19,14 @@ h1 {
 }
 
 #fondo {
-  margin-left: 36.5%;
-  margin-top: 2px;
   border-style: double;
   border-color: black;
   background-color: #95dd83;
 }
 
 #confirmar-container {
-  margin-top: 12px;
-  margin-bottom: 30px;
   text-align: center;
+  margin-top: 1em;
 }
 
 #confirmar-button {
@@ -47,3 +46,13 @@ h1 {
   transition: 0.5s;
 }
 
+#fondo {
+  width: 50vw;
+  background-color: #95dd83;
+}
+
+.cart-button:hover {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}

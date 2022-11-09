@@ -58,6 +58,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `usuarios` (`id`, `name`, `password`, `realname`) VALUES
+	(1,'admin','d82494f05d6917ba02f7aaa29689ccb444bb73f20380876cb05d1f37537b7892', 'admin');
+
 -- Volcando datos para la tabla estoredb.usuarios: ~0 rows (aproximadamente)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;

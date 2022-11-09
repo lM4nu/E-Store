@@ -1,12 +1,5 @@
 <div class="cart-container">
   <table id="fondo">
-    <colgroup>
-      <col span="1" style="width: 29.3%" />
-      <col span="1" style="width: 26.6%" />
-      <col span="1" style="width: 30.5%" />
-      <col span="1" style="width: 30%" />
-    </colgroup>
-
     <tbody>
       <tr>
         <th>Producto</th>
@@ -14,15 +7,36 @@
         <th>Cantidad</th>
         <th>Acciones</th>
       </tr>
+      <!--por cada elemento del array cartData mostrar un table row -->
+      <!--y pasarle el los datos del elemento-->
+      <!--mostrarlo solo si el elemento tiene contenido-->
+      <tr *ngFor="let cart of cartData; index as i">
+        <td *ngIf="cart">{{ cart.details?.name }}</td>
+        <td *ngIf="cart">{{ cart.details?.price * cart.cantidad }}</td>
+        <td *ngIf="cart">{{ cart.cantidad }}</td>
+        <td *ngIf="cart">
+          <!--botones + y - que ejecutan la funcion add-->
+          <!--pasandole por parametro un numero que se -->
+          <!--le sumara a la cantidad, en caso de sumarle -1-->
+          <!--se restara-->
+          <fa-icon
+            *ngIf="cart"
+            [icon]="faMinusCircle"
+            type="button"
+            class="cart-button"
+            (click)="add(-1, i)"
+          ></fa-icon>
+          <fa-icon
+            *ngIf="cart"
+            [icon]="faPlusCircle"
+            type="button"
+            class="cart-button"
+            (click)="add(1, i)"
+          ></fa-icon>
+        </td>
+      </tr>
     </tbody>
   </table>
-
-  <!--por cada elemento del array cartData mostrar un componente -->
-  <!--cart-item y pasarle el elemento-->
-  <app-cart-item
-    *ngFor="let cart of cartData"
-    [cartItem]="cart"
-  ></app-cart-item>
 
   <div id="confirmar-container">
     <a id="confirmar-button"> Confirmar </a>
