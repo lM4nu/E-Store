@@ -3,10 +3,10 @@
   <div>
     <table id="fondo">
       <colgroup>
-        <col span="1" style="width: 29.3%" />
-        <col span="1" style="width: 26.6%" />
+        <col span="1" style="width: 32.3%" />
+        <col span="1" style="width: 30.6%" />
         <col span="1" style="width: 30.5%" />
-        <col span="1" style="width: 30%" />
+        <col span="1" style="width: 35%" />
       </colgroup>
 
       <!--usamos interpolacion para mostrar todos los datos de cartItem-->
@@ -27,8 +27,18 @@
           <td>
             <!--dos botones + y - al clickearlos llaman a la funcion add()-->
             <!--y le pasan por parametro en cuanto incrementar el numero y que item del carrito editar-->
-            <input type="button" value="-" (click)="add(-1, cartItem)" />
-            <input type="button" value="+" (click)="add(1, cartItem)" />
+            <fa-icon [icon]="faMinusCircle"
+            type="button"
+            class="cart-button" 
+            (click)="add(-1, cartItem)" 
+            ></fa-icon>
+            <fa-icon
+            [icon]="faPlusCircle"
+            type="button"
+            class="cart-button" 
+            (click)="add(1, cartItem)" 
+            ></fa-icon>
+          
           </td>
         </tr>
       </tbody>
