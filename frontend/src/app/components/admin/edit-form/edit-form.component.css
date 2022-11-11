@@ -12,6 +12,7 @@
 .modalwindow {
   position: fixed;
   opacity: 100%;
+  padding: 1em;
   background: white;
   transform: translate(-50%, -50%);
   top: 50%;
@@ -22,13 +23,36 @@
   border-radius: 10px;
   border-color: black;
   background-color: rgb(241, 238, 234);
+
+  display: flex;
+  flex-direction: column;
 }
 
-label{
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  height: 100%;
+}
+
+label {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .hidden {
   display: none;
+}
+
+.btns {
+  /*border-style: solid;*/
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.input {
+  /*border-style: solid;*/
+  display: flex;
+  justify-content: space-between;
 }

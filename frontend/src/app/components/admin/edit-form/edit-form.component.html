@@ -11,57 +11,61 @@
   <form #formData="ngForm" (ngSubmit)="edit(formData)">
     <!--cada input tiene un ngModel, necesario para que este-->
     <!--en formData-->
-    <div>
-      <label for="name">Name</label>
-      <input
-        ngModel
-        type="text"
-        name="name"
-        id="name"
-        [placeholder]="productInfo.name"
-      />
+    <div class="inputs">
+      <div class="input">
+        <label for="name">Name</label>
+        <input
+          [(ngModel)]="productInfo.name"
+          type="text"
+          name="name"
+          id="name"
+          [placeholder]="productInfo.name"
+        />
+      </div>
+      <div class="input">
+        <label for="price">Price</label>
+        <input
+          [(ngModel)]="productInfo.price"
+          type="text"
+          name="price"
+          id="price"
+          [placeholder]="productInfo.price"
+          required
+        />
+      </div>
+      <div class="input">
+        <label for="imgpath">ImgPath</label>
+        <input
+          [(ngModel)]="productInfo.imgpath"
+          type="text"
+          name="imgpath"
+          id="imgpath"
+          [placeholder]="productInfo.imgpath"
+          required
+        />
+      </div>
+      <div class="input">
+        <label for="mostrar">Mostrar</label>
+        <div style="display: flex; width: 50%">
+          <input
+            [(ngModel)]="productInfo.mostrar"
+            type="checkbox"
+            name="mostrar"
+            id="mostrar"
+            checked="true"
+            required
+          />
+        </div>
+      </div>
     </div>
-    <div>
-      <label for="price">Price</label>
-      <input
-        ngModel
-        type="text"
-        name="price"
-        id="price"
-        [placeholder]="productInfo.price"
-        required
-      />
-    </div>
-    <div>
-      <label for="imgpath">ImgPath</label>
-      <input
-        ngModel
-        type="text"
-        name="imgpath"
-        id="imgpath"
-        [placeholder]="productInfo.imgpath"
-        required
-      />
-    </div>
-    <div>
-      <label for="mostrar">Mostrar</label>
-      <input
-        ngModel
-        type="checkbox"
-        name="mostrar"
-        id="mostrar"
-        checked="true"
-        required
-      />
-    </div>
-    <div>
+    <div class="btns">
       <!--boton de editar solo se muestra si recibimos un productInfo CON id-->
       <!--ejecuta la funcion especificada en ngSubmit-->
       <input
         *ngIf="productInfo.id"
         class="btn btn-primary"
         type="submit"
-        value="Editar"
+        value="Guardar"
       />
       <!--boton de agregar solo se muestra si recibimos un productInfo SIN id-->
       <!--ejecuta la funcion especificada en ngSubmit-->
@@ -78,7 +82,7 @@
         (click)="borrar()"
         class="btn btn-danger"
         type="button"
-        value="Borrar"
+        value="Eliminar"
       />
     </div>
   </form>
