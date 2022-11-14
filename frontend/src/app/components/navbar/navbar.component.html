@@ -42,7 +42,9 @@
       <!--esto es posible porque en el constructor esta declarado como publico-->
       <!--por eso se puede usar en el template-->
       <!--si el valor es undefined no muestra nada-->
-      <h2 class="nmrocantidad">{{ cartService.cantidad }}</h2>
+      <h2 routerLink="/cart" class="nmrocantidad">
+        {{ cartService.cantidad }}
+      </h2>
     </div>
   </div>
 </nav>

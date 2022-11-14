@@ -88,6 +88,11 @@ public class ProductosController {
 	    productosRepository.save(producto);
 	    // por defecto cuando guardamos un elemento y tiene la id de uno ya existente
 	    // este va a a ser sobreescrito
+
+	    // si el atributo mostrar se edito con el valor falso
+	    if(!producto.getMostrar()){
+		    carritosRepository.deleteByProductoid(producto.getId()); // se borra del carrito de los usuarios
+	    }
 	    return "{ \"success\":true, \"msg\":\"producto editado\" }"; // devuelve un string json de respuesta
     }
 
