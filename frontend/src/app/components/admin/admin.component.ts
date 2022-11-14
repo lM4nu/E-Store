@@ -54,7 +54,7 @@ export class AdminComponent implements OnInit {
 
   // muestra el formulario y le pasa un objeto productos vacio sin id
   addProduct() {
-    this.showForm({ name: '', price: '', imgpath: '' });
+    this.showForm({ name: '', price: '', imgpath: '', mostrar: true });
   }
 
   // recibe un producto y lo asigna a current product
